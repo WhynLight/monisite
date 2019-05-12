@@ -1,0 +1,105 @@
+/*页眉*/
+body
+{
+    margin:0;
+    padding:0;
+    background-color:#EEF3F7;
+}
+
+#div1
+{
+    height:60px;
+    background-color:#00FFFF;
+    text-align:center;
+}
+
+#sp1
+{
+    color:#000000;
+    line-height:60px;
+    font-weight:bold;
+    font-size:40px;
+    font-family:"SimHei";
+}
+
+/*导航栏*/
+#ul1
+{
+    list-style-type:none;
+    margin:0 auto;
+    padding:0;
+    overflow:hidden;
+    background-color:#00CCFF;
+    width:100%;
+}
+
+#ul1 li
+{
+    float:left;
+}
+
+#ul1 li a
+{
+    display:block;
+    color:#000000;
+    text-align:center;
+    padding:14px 16px;
+    text-decoration:none;
+    font-size:20px;
+}
+
+#ul1 li a:hover
+{
+    background-color:#00FFFF;
+}
+
+/*组件样式*/
+.inputbox
+{
+    margin:10px 30px;
+    padding:10px 20px;
+    color:#000000;
+    border:2px solid #000033;
+    border-radius:30px;
+}
+
+.displaybox
+{
+    margin:10px 30px;
+    padding:10px 20px;
+    color:#000000;
+    border:2px solid #000033;
+    border-radius:30px;
+}
+.father
+{
+}
+.child
+{
+    width:50%
+}
+.ips
+{
+}
+
+#allhosts
+{
+    display:flex;
+}
+#hosts
+{
+    width:40%
+}
+#status
+{
+    width:60%
+}
+
+.detail
+{
+    margin:2px 0px;
+    padding:2px 10px;
+    color:#000000;
+    border:1px solid #000033;
+    border-radius:30px;
+}

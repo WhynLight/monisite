@@ -1,0 +1,35 @@
+{% extends 'mysite/base.html' %}
+{% load static %}
+
+{% block title %}
+告警配置
+{% endblock %}
+
+{% block statics %}
+<script type="text/javascript" src="{% static 'myall/js/jquery-1.12.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'myall/js/csrf.js' %}"></script>
+<script type="text/javascript">
+    var thre_val = '{{ thre_val|safe }}';
+    var del_result = '{{ hand_result|safe }}';
+</script>
+<script type="text/javascript" src="{% static 'myall/js/setthre.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="inputbox">
+    <font>告警阀值配置:</font><br>
+    <form id="threval">
+        {% csrf_token %}
+        名称:     <input type="text" name="threname"><br>
+        cpu阀值:  <input type="number" name="cputhre"><br>
+        内存阀值: <input type="number" name="memthre"><br>
+        硬盘阀值: <input type="number" name="diskthre"><br>
+        <button type="submit" id="subthre">提交</button>
+    </form>
+</div>
+
+<div class="displaybox" id="threshow">
+    <font>阀值配置方案:</font><br>
+
+</div>
+{% endblock %}

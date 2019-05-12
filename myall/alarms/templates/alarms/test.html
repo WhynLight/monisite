@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<script type="text/javascript" src="{% static 'myall/js/jquery-1.12.4.min.js' %}"></script>
+<script type="text/javascript">
+    var thre_val = '{{ threval|safe }}';
+</script>
+<script type="text/javascript" src="{% static 'myall/js/tests.js' %}"></script>
+<meta charset="utf-8">
+<title>测试页面</title>
+</head>
+
+<body>
+cccccccccccccccccccccc
+<div id="testdemo">
+<p>---------------</p>
+{{ a }}
+</div>
+</body>
+</html>

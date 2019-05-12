@@ -1,0 +1,58 @@
+# -*- coding:utf-8 -*-
+import json
+from django.shortcuts import render
+from django.http import HttpResponse
+from factory.models import Cpudata,Memorydata,Diskdata,Lastcomm
+from factory.savedata import Savedata
+from django.views.decorators.csrf import csrf_exempt
+
+# Create your views here.
+def index(request):
+    
+    host_info = {
+        "general_info":{
+            "host_ip":"222.222.222.222",    #str类型
+            "timestame":"1111111111"    #十位时间戳,str类型
+        },
+    
+        "cpu_info":{
+            "cpu_percent":"18.2"   #str类型
+        },
+    
+        "mem_info":{
+            "mem_percent":"32.3",   #str类型
+            "mem_free":"128933333"   #str类型
+        },
+    
+        "disk_info":{
+            "disk_percent":"12.8", #str类型
+            "disk_free":"1321"  #str类型
+        }
+    
+    }
+    
+#   savedata.Savedata.save_hostinfo(host_info)
+    cpu_hostip = Cpudata.objects.filter().latest("id").host_ip
+    mem_hostip = Memorydata.objects.filter().latest("id").host_ip
+    disk_hostip = Diskdata.objects.filter().latest("id").host_ip
+    all_info = {"cpu":cpu_hostip,"mem":mem_hostip,"disk":disk_hostip}
+    all_info = json.dumps(all_info)
+
+    return HttpResponse(all_info)
+
+@csrf_exempt
+def pushdata(request):
+    """
+    这个函数获取agent推送的数据并存入数据库
+    """
+    host_info = json.loads(request.body)
+    host_info["general_info"]["host_ip"] = request.META["REMOTE_ADDR"]
+    a = Savedata.save_hostinfo(host_info)
+
+    return HttpResponse(a)
+
+@csrf_exempt
+def test(request):
+#   a = json.loads(request.body)
+    return render(request,'factory/text.html')
+#   return HttpResponse("dddddddddddddddddddddd")

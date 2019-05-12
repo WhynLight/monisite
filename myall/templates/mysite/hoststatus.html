@@ -1,0 +1,43 @@
+{% extends 'mysite/base.html' %}
+{% load static %}
+
+{% block title %}
+主机状态
+{% endblock %}
+
+{% block cssfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myall/css/hoststate.css' %}">
+{% endblock %}
+
+{% block statics %}
+    <script type="text/javascript" src="{% static 'myall/js/jquery-1.12.4.min.js' %}"></script>
+    <script>
+        var hostip = {{ hostip|safe }};
+        var alarmname = {{ ala_name|safe }};
+    </script>
+    <script type="text/javascript" src="{% static 'myall/js/hoststate.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div ="displaybox" id="allhosts">
+    <div class="displaybox" id="hosts">
+    </div>
+    <div class="displaybox" id="status">
+        <div class="detail" id="ip">
+            <p>主机IP: <font id="ipval"></font></p>
+        </div>
+        <div class="detail" id="cpu">
+            <p>cpu利用率: <font id="cpuval"></font></p>
+            <img border="1" id="cpuimg" src="" alt="cpu折线图" width="400" height="300">
+        </div>
+        <div class="detail" id="mem">
+            <p>内存利用率: <font id="memval"></font></p>
+            <img border="1" id="memimg" src="" alt="内存折线图" width="400" height="300">
+        </div>
+        <div class="detail" id="disk">
+            <p>硬盘利用率: <font id="diskval"></font></p>
+            <img border="1" id="diskimg" src="" alt="硬盘折线图" width="400" height="300">
+        </div>
+    </div>
+</div>
+{% endblock %}
