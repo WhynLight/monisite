@@ -1,0 +1,2 @@
+向服务器发送数据：python3 pushdata.py
+主机名修改pretreat.py文件中64行host_info字典的"host_name"键实现
