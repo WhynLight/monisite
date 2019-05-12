@@ -37,6 +37,7 @@ class Pretreat(object):
         返回值：
             host_info:json对象，包含系统基础信息
         """
+        #主机名修改host_name实现
         host_info = {
             "general_info":general_info,
             "cpu_info":cpu_info,
